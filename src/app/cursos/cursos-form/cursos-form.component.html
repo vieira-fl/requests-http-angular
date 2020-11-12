@@ -1,0 +1,28 @@
+<form class="needs-validation pt-2" [formGroup]="form" novalidate>
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="nome">Nome do Curso</label>
+            <input 
+                formControlName="nome" 
+                class="form-control"
+                type="text"
+                id="nome" 
+                placeholder="Nome do Curso"
+                [ngClass]="{ 'is-invalid': submitted && hasError('nome') }"
+                required>
+            <div class="invalid-feedback" *ngIf="hasError('nome') && hasError('nome')['required']">
+                Por favor, informe um nome para o curso
+            </div>
+            <div class="invalid-feedback" *ngIf="hasError('nome') && hasError('nome')['minlength']">
+                Por favor, informe um nome com no mínimo {{ hasError('nome')['minlength'].requiredLength }} caractéres
+            </div>
+            <div class="invalid-feedback" *ngIf="hasError('nome') && hasError('nome')['maxlength']">
+                Por favor, informe um nome com no máximo {{ hasError('nome')['maxlength'].requiredLength }} caractéres
+            </div>
+        </div>
+    </div>
+    <div class="mt-2">
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
+        <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
+    </div>
+</form>

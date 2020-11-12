@@ -1,0 +1,18 @@
+<div class="mt-3 col-sm-12 p-0">
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFile" (change)="onChange($event)" multiple>
+        <label class="custom-file-label" for="customFile" id="customFileLabel">Selecione os arquivos para upload...</label>
+    </div>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" [style.width]="progress + '%'">{{ progress }}%</div>
+    </div>
+</div>
+<div class="mt-3">
+    <button type="button" class="btn btn-primary" (click)="onUpload()" [disabled]="!files">Upload</button>
+</div>
+<div class="mt-3">
+    <button type="button" class="btn btn-primary" (click)="onDownloadExcel()">Download Excel</button>
+</div>
+<div class="mt-3">
+    <button type="button" class="btn btn-primary" (click)="onDownloadPdf()">Download PDF</button>
+</div>
